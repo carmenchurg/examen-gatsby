@@ -44,13 +44,26 @@ const IndexPage = () => (
     <div className="card-container">
       {cardData.slice(0, 4).map((card) => (
         <Card
-          key={card.id}
-          title={card.title}
-          image={<StaticImage src={card.image} alt={card.title} />}
-          text={card.description}
-          buttonText="Ver más"
-          onClick={() => window.open(card.link, '_blank')}
-        />
+        key={card.id}
+        title={card.title}
+        text={card.description}
+        buttonText="Ver más"
+        onClick={() => window.open(card.link, '_blank')}
+      >
+        {/* Usa StaticImage con la ruta relativa correcta */}
+        {card.id === 1 && (
+          <StaticImage src="../images/react.jpg" alt="React logo" />
+        )}
+        {card.id === 2 && (
+          <StaticImage src="../images/gatsby.jpg" alt="Gatsby logo" />
+        )}
+        {card.id === 3 && (
+          <StaticImage src="../images/figma.jpg" alt="Figma logo" />
+        )}
+        {card.id === 4 && (
+          <StaticImage src="../images/graphql.jpg" alt="Graphql logo" />
+        )}
+      </Card>
       ))}
     </div>
   </main>
